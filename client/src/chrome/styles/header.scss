@@ -1,0 +1,62 @@
+@import '../../global-styles/_module';
+header {
+	position: relative;
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	svg {
+		width: 25px;
+		height: 25px;
+	}
+	.nav {
+		position:relative;
+		left: -100px;
+		.plus {
+			transform: rotate(45deg);
+		}
+	}
+	.logo {
+		@extend %headline-s1;
+		position: absolute;
+		z-index: 10;
+	}
+	h1 {
+		display: inline-block;
+		margin: 0px 0px 0px 260px;
+	}
+	.header-user {
+		position: absolute;
+		top: 2px;
+		right: 0px;
+		text-align: right;
+		svg {
+			position: relative;
+		}
+		p {
+			margin-top: 20px;
+		}
+	}
+	.login{
+		position: absolute;
+		top: 0;
+		right: 50px;
+		display: inline-block;
+		padding: 0.4em 0.6em;
+		background-color: black;
+		color: white;
+		text-transform: uppercase;
+		font-size: .8em;
+	}
+}
+
+@media ($xs-viewport-min) {
+
+}
+
+@media ($sm-viewport-min) {
+
+}
+
+@media ($xl-viewport-min) {
+
+}

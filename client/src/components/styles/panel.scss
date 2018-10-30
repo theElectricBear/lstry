@@ -1,0 +1,73 @@
+@import '../../global-styles/_variables';
+.xs {
+  width: 100px;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  color: $white;
+  background-color: $black;
+  aside, nav {
+    display: block;
+    max-width: 1400px;
+    margin: 90px auto 0px;
+    padding: 50px 50px 50px 150px;
+  }
+  h2 {
+    margin-bottom: 1em;
+  }
+  button {
+    background-color: $white;
+    color: $black;
+    width: 55px;
+    padding: 2px 10px;
+    margin-right: 20px;
+    font-weight: 600;
+    border: none;
+    &:last-of-type {
+      background-color: $grey;
+    }
+  }
+
+
+}
+
+.panel-active {
+  .logo {
+    color: $white;
+  }
+  svg {
+    fill: $white;
+    &.plus {
+      transform: rotate(45deg)
+    }
+  }
+}
+
+form {
+  > * {
+    display: block;
+    width: 500px;
+    margin-bottom: 1em;
+    background-color: transparent;
+    color: $white;
+    border: none;
+    border-bottom: 1px $white solid;
+  }
+  input, select {
+    margin-bottom: 1em;
+    border-radius: 0px;
+    appearance: none;
+    &::placeholder {
+      color: $white;
+    }
+  }
+  select {
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+}

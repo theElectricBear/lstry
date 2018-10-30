@@ -1,11 +1,16 @@
 {
   "dependencies": {
-    "express": "4.16.3",
-    "pg": "7.4.3",
-    "redis": "2.8.0",
+    "async": "^2.6.1",
+    "body-parser": "*",
     "cors": "2.8.4",
+    "express": "4.16.3",
+    "express-session": "^1.15.6",
+    "metascraper": "^3.12.1",
+    "mongoose": "^5.2.12",
     "nodemon": "1.18.3",
-    "body-parser": "*"
+    "passport": "^0.4.0",
+    "passport-slack": "0.0.7",
+    "passport-slack-oauth2": "^1.0.2"
   },
   "scripts": {
     "dev": "nodemon",

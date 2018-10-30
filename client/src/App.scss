@@ -1,0 +1,111 @@
+@import './global-styles/_module';
+
+
+body {
+	font-family: $helvetica;
+	font-size: 16px;
+}
+
+.site-wrapper {
+	&.pink { background-color: $pas_pink; }
+	&.yellow { background-color: $pas_yellow; }
+	&.green { background-color: $pas_green; }
+	&.orange { background-color: $pas_orange; }
+	&.blue { background-color: $pas_blue; }
+	.container {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 50px 50px 50px 150px;
+		min-height: 100vh;
+	}
+}
+
+ul {
+	list-style: none;
+	position: relative;
+}
+
+svg {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	z-index: 10;
+}
+
+.current {
+	border-bottom: 4px solid white;
+}
+
+main {
+	margin: 90px 0px;
+}
+.list-container {
+	display: inline-block;
+	width: 260px;
+	vertical-align: top;
+	padding-right: 30px;
+	margin-top: 60px;
+	&.full {
+		width: 794px;
+	}
+	&.column {
+		div { column-count: 3; }
+	}
+	div {
+		margin-bottom: 2rem
+	}
+	h2 {
+		padding-bottom: 1em;
+		text-transform: capitalize;
+	}
+	li {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		&:hover .pre {
+			display: block;
+		}
+	}
+	.pre {
+		position: absolute;
+		left: -60px;
+		display: none;
+		padding: 4px 10px;
+		button {
+			display: inline-block;
+			padding-right: 10px;
+			background-color: transparent;
+			border: none;
+		}
+		svg {
+			position: relative;
+			width: 16px;
+			top: -3px;
+			z-index: 0;		
+		}
+	}
+}
+
+input {
+	color: $white;
+}
+
+h1 {
+	margin: 0px
+}
+h3 {
+	display: inline-block;
+}
+#app { width: 500px; }
+
+
+li {
+	padding: .4em 1.2em .4em 0em;
+	&:hover {
+		background: rgba(255,255,255,0.3);	
+	}
+	&.placeholder {
+		background: rgba(255,255,255,0.5);
+	}
+}
+

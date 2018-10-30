@@ -1,29 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import OtherPage from './OtherPage';
-import Fib from './Fib';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Router } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
+import { fetchData } from './reducers/main_data'
+import { fetchUser } from './reducers/current_user'
+import { setView } from './reducers/view_lists'
+import { Header, Footer, Routes } from './chrome'
+import { Panel } from './components'
+import "./App.scss"
+
+const history = createHistory()
+history.listen((location, action) => {
+	//console.log(location.pathname)
+});
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Fib Calculator</h1>
-            <Link to="/">Home</Link>
-            <Link to="/otherpage">Other Page</Link>
-          </header>
-          <div>
-            <Route exact path="/" component={Fib} />
-            <Route path="/otherpage" component={OtherPage} />
-          </div>
-        </div>
-      </Router>
-    );
-  }
+
+	componentDidMount() {
+		this.props.fetchData()
+		this.props.fetchUser()
+	}
+
+	render() {
+		const { panel } = this.props.panel
+		const { color } = this.props.view
+		return (
+			<Router history={history}>
+				<div className={ `site-wrapper ${ panel && "panel-active" } ${ color }` }>
+					<div className='container'>
+						<Header />
+						<Routes />
+						<Footer />
+						{ panel && <Panel /> }
+					</div>
+				</div>
+			</Router>
+		)
+	}
+
 }
 
-export default App;
+export default connect(
+	(state) => ({ browser: state.browser, mainData: state.mainData, currentUser: state.currentUser, view: state.view, panel: state.panel }),
+	{ fetchData, fetchUser, setView }
+)(App)

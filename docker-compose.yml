@@ -1,9 +1,5 @@
 version: '3'
 services: 
-  postgres:
-    image: 'postgres:latest'
-  redis:
-    image: 'redis:latest'
   nginx:
     restart: always
     build:
@@ -19,13 +15,13 @@ services:
       - /app/node_modules
       - ./server:/app
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - PGUSER=postgres
-      - PGHOST=postgres
-      - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
-      - PGPORT=5432
+      - NODE_ENV=development
+      - PORT=5000
+      - MONGOLAB_URI=mongodb://interface_connect:1Tkr5bn87YwlhBt0@ds151289.mlab.com:51289/proofbot
+      - CLIENT_ID=4027298504.412391786784
+      - CLIENT_SECRET=feed9a301ee940410a9846ed7dec50d4
+      - CALLBACK_URI=http://localhost:3050/auth/slack/callback
+      - SESSION_SECRET=9T8a6RKwZbmRmODX
   client:
     build:
       dockerfile: Dockerfile.dev
@@ -33,15 +29,5 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-  worker:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./worker
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-    volumes:
-      - /app/node_modules
-      - ./worker:/app
 
 

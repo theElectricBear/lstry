@@ -1,0 +1,30 @@
+/**
+* ==================================================
+*		Utility Classes
+* ==================================================
+*/
+.clearfix:after{
+	clear: both;
+	content: '';
+	display: block;
+}
+.offscreen {
+	display: block;
+	left: -999999px;
+	position: absolute;
+	top: -999999px;
+}
+.visually-hidden {
+	position: absolute;
+	clip: rect(1px,1px,1px,1px);
+}
+.no-wrap {
+	white-space: nowrap;
+}
+.img-wrap {
+	img {
+		display: block;
+		height: auto;
+		width: 100%;
+	}
+}
