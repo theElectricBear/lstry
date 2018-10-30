@@ -1,4 +1,4 @@
-import {partial, pipe, genId} from './utils'
+import {partial, pipe, genId} from './util'
 
 const add = (a, b) => a + b
 const addThree = (a, b, c) => a + b + c
