@@ -3,21 +3,19 @@ services:
     - docker
 
 before_install:
-    - docker build -t tetherdev/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t tetherdev/lstry-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run tetherdev/react-test npm test -- --coverage
+  - docker run tetherdev/lstry-test npm test -- --coverage
 
 after_success:
-  - docker build -t tetherdev/multi-client ./client
-  - docker build -t tetherdev/multi-nginx ./nginx
-  - docker build -t tetherdev/multi-server ./server
-  - docker build -t tetherdev/multi-worker ./worker
+  - docker build -t tetherdev/lstry-client ./client
+  - docker build -t tetherdev/lstry-nginx ./nginx
+  - docker build -t tetherdev/lstry-server ./server
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push tetherdev/multi-client
-  - docker push tetherdev/multi-nginx
-  - docker push tetherdev/multi-server
-  - docker push tetherdev/multi-worker
+  - docker push tetherdev/lstry-client
+  - docker push tetherdev/lstry-nginx
+  - docker push tetherdev/lstry-server
 
 deploy:
     provider: elasticbeanstalk
