@@ -17,3 +17,15 @@ after_success:
   - docker push tetherdev/lstry-nginx
   - docker push tetherdev/lstry-server
 
+deploy:
+    provider: elasticbeanstalk
+    region: us-west-2
+    app: lstry
+    env: Lstry-env
+    bucket_name: elasticbeanstalk-us-west-2-075083687404
+    bucket_path: lstry
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY
