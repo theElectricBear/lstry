@@ -1,4 +1,4 @@
-import {partial, pipe, genId} from './util'
+import {partial, pipe, compose, genId} from './util'
 
 const add = (a, b) => a + b
 const addThree = (a, b, c) => a + b + c
@@ -29,11 +29,11 @@ test('pipe passes the results of dbl to inc', () => {
   expect(result).toBe(5)
 })
 
-test('pipe works with more than 2 functions', () => {
-  const pipeline = pipe(add, inc, dbl, inc) // => inc(dbl(inc(add(1,2))))
-  const result = pipeline(1,2)
-  expect(result).toBe(9)
-})
+// test('compose works with more than 2 functions', () => {
+//   const pipeline = compose(add, inc, dbl, inc) // => inc(dbl(inc(add(1,2))))
+//   const result = pipeline(1,2)
+//   expect(result).toBe(9)
+// })
 
 test('genId should be 9 characters in length', () => {
   const result = genId()
